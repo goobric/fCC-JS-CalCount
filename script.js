@@ -39,5 +39,7 @@ function cleanInputString(str) {
 
 function isInvalidInput(str) {
   const regex = /^[+-]?\d+(\.\d+)?$/;
-  return !regex.test(str);
+  // const regex =/[0-9]+e[0-9]+/ig;
+  // return !regex.test(str);
+  return str.match(regex);
 }
