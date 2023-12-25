@@ -90,4 +90,20 @@ The querySelectorAll() method returns a NodeList of all the elements that match 
 // const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
 addEntryButton.addEventListener('click', addEntry);
 
-function getCaloriesFromInputs(list) {}
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+
+  for (let i = 0; i < list.length; i++) {
+    // const currVal = list[i].value;
+    const currVal = cleanInputString(list[i].value);
+    const invalidInputMatch = isInvalidInput(currVal);
+    if (invalidInputMatch) {
+      alert(`Invalid Input: ${invalidInputMatch[0]}`);
+      isError = true;
+      return null;
+    }
+    // Use the addition assignment operator to add currVal to the calories total
+    calories += Number(currVal);
+  } // end for loop
+  return calories;
+}
