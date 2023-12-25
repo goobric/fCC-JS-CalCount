@@ -74,7 +74,7 @@ function addEntry() {
 The querySelectorAll() method returns a NodeList of all the elements that match the selector. A NodeList is an array-like object, so you can access the elements using bracket notation. **/
 
   const entryNumber =
-    targetInputContainer.querySelectorAll('input[type="text"]').length;
+    targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
 
   /** Now you need to build your dynamic HTML string to add to the webpage. Declare a new HTMLString variable, and assign it an empty template literal string. **/
 
@@ -83,7 +83,8 @@ The querySelectorAll() method returns a NodeList of all the elements that match 
   <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</lable>
   <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />`;
 
-  targetInputContainer.innerHTML += HTMLString;
+  // targetInputContainer.innerHTML += HTMLString;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
 
 // const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
