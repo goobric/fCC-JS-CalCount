@@ -36,3 +36,8 @@ function cleanInputString(str) {
 // The \s is a special character that matches any whitespace character (space, tab, newline, and so on).
 // The g is a modifier (global flag) that makes the regular expression search for matches throughout the whole string, instead of just the first match.
 // [+-\s] matches any of the characters +, -, or whitespace. this is a character set.
+
+function isInvalidInput(str) {
+  const regex = /^[+-]?\d+(\.\d+)?$/;
+  return !regex.test(str);
+}
