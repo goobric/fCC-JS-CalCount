@@ -87,9 +87,6 @@ The querySelectorAll() method returns a NodeList of all the elements that match 
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
 
-// const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
-addEntryButton.addEventListener('click', addEntry);
-
 function getCaloriesFromInputs(list) {
   let calories = 0;
 
@@ -107,3 +104,6 @@ function getCaloriesFromInputs(list) {
   } // end for loop
   return calories;
 }
+
+// const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
+addEntryButton.addEventListener('click', addEntry);
