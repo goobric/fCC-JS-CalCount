@@ -49,7 +49,7 @@ function addEntry() {
   const entryDropdown = document.getElementById('entry-dropdown');
 
   // Use concatenation to add a '#' to the beginning of the value property
-  const targetId = '#' + entryDropdown.value;
+  //const targetId = '#' + entryDropdown.value;
 
   // Now targetId holds the result
   console.log(targetId);
@@ -59,11 +59,32 @@ function addEntry() {
   const targetInputContainerSelector = `${targetId} .input-container`;
 
   // Use querySelector to target the .input-container element
-  const targetInputContainer = document.querySelector(
-    targetInputContainerSelector
-  );
+  // const targetInputContainer = document.querySelector(
+  //   targetInputContainerSelector
+  // );
 
   // Now targetInputContainer holds the .input-container element
   console.log(targetInputContainer);
+
+  /** JavaScript has a feature called template literals, which allow you to interpolate variables directly within a string. Template literals are denoted with backticks ``, as opposed to single or double quotes. Variables can be passed in to a template literal by surrounding the variable with ${} – the value of the variable will be inserted into the string. **/
+  const targetInputContainer = document.querySelector(
+    `#${entryDropdown.value} .input-container`
+  );
+  /** To get all of the number inputs, you can use the querySelectorAll() method.
+The querySelectorAll() method returns a NodeList of all the elements that match the selector. A NodeList is an array-like object, so you can access the elements using bracket notation. **/
+
+  const entryNumber =
+    targetInputContainer.querySelectorAll('input[type="text"]').length;
+
+  /** Now you need to build your dynamic HTML string to add to the webpage. Declare a new HTMLString variable, and assign it an empty template literal string. **/
+
+  const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</lable>
+  <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
+  <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</lable>
+  <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />`;
+
+  targetInputContainer.innerHTML += HTMLString;
 }
-/** JavaScript has a feature called template literals, which allow you to interpolate variables directly within a string. Template literals are denoted with backticks ``, as opposed to single or double quotes. Variables can be passed in to a template literal by surrounding the variable with ${} – the value of the variable will be inserted into the string. **/
+
+// const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
+addEntryButton.addEventListener('click', addEntry);
