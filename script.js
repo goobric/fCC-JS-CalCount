@@ -89,3 +89,5 @@ The querySelectorAll() method returns a NodeList of all the elements that match 
 
 // const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
 addEntryButton.addEventListener('click', addEntry);
+
+function getCaloriesFromInputs(list) {}
