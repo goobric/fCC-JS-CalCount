@@ -29,6 +29,10 @@ function cleanInputString(str) {
   //     cleanStrArray.push(strArray[i]);
   //   }
   // }
-  const regex = /hello/g;
+  const regex = /[+-\s]/g;
+  return str.replace(regex, '');
 }
 // Note that you need to use the \ to escape the +, because a + has a special meaning in regular expressions.
+// The \s is a special character that matches any whitespace character (space, tab, newline, and so on).
+// The g is a modifier (global flag) that makes the regular expression search for matches throughout the whole string, instead of just the first match.
+// [+-\s] matches any of the characters +, -, or whitespace. this is a character set.
