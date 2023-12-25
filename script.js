@@ -21,11 +21,14 @@ const strArray = str.split('');
 // ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d"]
 **/
 function cleanInputString(str) {
-  const strArray = str.split('');
-  const cleanStrArray = [];
-  for (let i = 0; i < strArray.length; i++) {
-    if (strArray[i] !== ' ') {
-      cleanStrArray.push(strArray[i]);
-    }
-  }
+  // const strArray = str.split('');
+  // const cleanStrArray = [];
+  // for (let i = 0; i < strArray.length; i++) {
+  //   // Check if the array ["+", "-", " "] does not include the current character
+  //   if (!['+', '-', ' '].includes(strArray[i])) {
+  //     cleanStrArray.push(strArray[i]);
+  //   }
+  // }
+  const regex = /hello/g;
 }
+// Note that you need to use the \ to escape the +, because a + has a special meaning in regular expressions.
