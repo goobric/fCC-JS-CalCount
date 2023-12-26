@@ -86,6 +86,9 @@ The querySelectorAll() method returns a NodeList of all the elements that match 
   // targetInputContainer.innerHTML += HTMLString;
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
+
+calorieCounter.addEventListener('submit', calculateCalories);
+
 function calculateCalories(e) {
   e.preventDefault();
   isError = false;
@@ -128,6 +131,8 @@ function calculateCalories(e) {
   // Use a ternary operator to set surplusOrDeficit based on remainingCalories
   const surplusOrDeficit = remainingCalories >= 0 ? 'Surplus' : 'Deficit';
 
+  // Make the #output element visible
+  output.classList.remove('hide');
   // Construct the HTML string
   // Assign the HTML string to the innerHTML property of the output element
   // document.getElementById('output').innerHTML = HTMLString;
@@ -135,7 +140,9 @@ function calculateCalories(e) {
     remainingCalories
   )} Calorie ${surplusOrDeficit}</span>
   <hr>
-  <p>${budgetCalories} Calories Budgeted</p>`;
+  <p>${budgetCalories} Calories Budgeted</p>
+  <p>${consumedCalories} Calories Consumed</p>
+  <p>${exerciseCalories} Calories Burned</p>`;
 }
 /** For your getCaloriesFromInputs function, an array will work for the argument just as well as a NodeList does.
 Declare a budgetCalories variable and set it to the result of calling getCaloriesFromInputs – pass an array containing your budgetNumberInput as the argument. **/
@@ -158,5 +165,11 @@ function getCaloriesFromInputs(list) {
   return calories;
 }
 
+function clearForm() {
+  const inputContainers = document.querySelectorAll('.input-container');
+  for (let i = 0; i < inputContainers.length; i++) {
+    inputContainers[i].innerHTML = '';
+  }
+}
 // const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
 addEntryButton.addEventListener('click', addEntry);
