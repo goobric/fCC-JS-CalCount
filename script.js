@@ -131,7 +131,11 @@ function calculateCalories(e) {
   // Construct the HTML string
   // Assign the HTML string to the innerHTML property of the output element
   // document.getElementById('output').innerHTML = HTMLString;
-  output.innerHTML = ``;
+  output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(
+    remainingCalories
+  )} Calorie ${surplusOrDeficit}</span>
+  <hr>
+  <p>${budgetCalories} Calories Budgeted</p>`;
 }
 /** For your getCaloriesFromInputs function, an array will work for the argument just as well as a NodeList does.
 Declare a budgetCalories variable and set it to the result of calling getCaloriesFromInputs – pass an array containing your budgetNumberInput as the argument. **/
