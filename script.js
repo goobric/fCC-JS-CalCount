@@ -166,10 +166,20 @@ function getCaloriesFromInputs(list) {
 }
 
 function clearForm() {
-  const inputContainers = document.querySelectorAll('.input-container');
+  // const inputContainers = document.querySelectorAll('.input-container');
+  const inputContainers = Array.from(
+    document.querySelectorAll('.input-container')
+  );
   for (let i = 0; i < inputContainers.length; i++) {
     inputContainers[i].innerHTML = '';
   }
+
+  // Clear the budgetNumberInput value
+  budgetNumberInput.value = '';
+  // Clear the output element's text
+  output.innerText = '';
+  // Add the hide class to the output element
+  output.classList.add('hide');
 }
 // const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
 addEntryButton.addEventListener('click', addEntry);
