@@ -114,7 +114,13 @@ function calculateCalories(e) {
   const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
   const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
   const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+
+  // Declare budgetCalories and pass an array containing budgetNumberInput to getCaloriesFromInputs
+  const budgetNumberInput = document.getElementById('budget');
+  const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
 }
+/** For your getCaloriesFromInputs function, an array will work for the argument just as well as a NodeList does.
+Declare a budgetCalories variable and set it to the result of calling getCaloriesFromInputs – pass an array containing your budgetNumberInput as the argument. **/
 
 function getCaloriesFromInputs(list) {
   let calories = 0;
