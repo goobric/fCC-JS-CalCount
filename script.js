@@ -118,6 +118,20 @@ function calculateCalories(e) {
   // Declare budgetCalories and pass an array containing budgetNumberInput to getCaloriesFromInputs
   const budgetNumberInput = document.getElementById('budget');
   const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+
+  // Check the truthiness of the global error flag
+  if (isError) {
+    return; // End function execution if isError is truthy
+  }
+
+  const consumedCalories =
+    breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+  const remainingCalories =
+    budgetCalories - consumedCalories + exerciseCalories;
+
+  /** Use a ternary operator to set surplusOrDeficit to the string Surplus or Deficit depending on whether remainingCalories is greater than or equal to 0. If it is greater than or equal to 0, then surplusOrDeficit should be Surplus. Otherwise, it should be Deficit. **/
+  // Use a ternary operator to set surplusOrDeficit based on remainingCalories
+  const surplusOrDeficit = remainingCalories >= 0 ? 'Surplus' : 'Deficit';
 }
 /** For your getCaloriesFromInputs function, an array will work for the argument just as well as a NodeList does.
 Declare a budgetCalories variable and set it to the result of calling getCaloriesFromInputs – pass an array containing your budgetNumberInput as the argument. **/
