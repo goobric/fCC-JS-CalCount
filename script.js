@@ -181,5 +181,7 @@ function clearForm() {
   // Add the hide class to the output element
   output.classList.add('hide');
 }
-// const addEntryButton = document.getElementById('calculate-calories'); // Replace 'yourAddEntryButtonId' with the actual ID of your button
+// const addEntryButton = document.getElementById('calculate-calories');
 addEntryButton.addEventListener('click', addEntry);
+calorieCounter.addEventListener('submit', calculateCalories);
+clearButton.addEventListener('click', clearForm);
