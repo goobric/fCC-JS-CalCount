@@ -86,11 +86,6 @@ The querySelectorAll() method returns a NodeList of all the elements that match 
   // targetInputContainer.innerHTML += HTMLString;
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
-
-function calculateCalories(e) {
-  e.preventDefault(); // Call preventDefault() on the event object
-  isError = false; // Reset the global error flag to false
-}
 function calculateCalories(e) {
   e.preventDefault();
   isError = false;
@@ -132,6 +127,12 @@ function calculateCalories(e) {
   /** Use a ternary operator to set surplusOrDeficit to the string Surplus or Deficit depending on whether remainingCalories is greater than or equal to 0. If it is greater than or equal to 0, then surplusOrDeficit should be Surplus. Otherwise, it should be Deficit. **/
   // Use a ternary operator to set surplusOrDeficit based on remainingCalories
   const surplusOrDeficit = remainingCalories >= 0 ? 'Surplus' : 'Deficit';
+
+  // Construct the HTML string
+  //
+
+  // Assign the HTML string to the innerHTML property of the output element
+  // document.getElementById('output').innerHTML = HTMLString;
 }
 /** For your getCaloriesFromInputs function, an array will work for the argument just as well as a NodeList does.
 Declare a budgetCalories variable and set it to the result of calling getCaloriesFromInputs – pass an array containing your budgetNumberInput as the argument. **/
